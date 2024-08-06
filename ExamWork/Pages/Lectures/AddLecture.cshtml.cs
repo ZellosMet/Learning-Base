@@ -7,13 +7,10 @@ namespace ExamWork.Pages.Lecture
     public class AddLectionModel : PageModel
     {
         public LectureServices LS;
-        public GroupServices G;
-
         public string Message = String.Empty;
-        public AddLectionModel(LectureServices ls, GroupServices g)
+        public AddLectionModel(LectureServices ls)
         {
             LS = ls;
-            G = g;
         }
         public IActionResult OnGet() 
         {

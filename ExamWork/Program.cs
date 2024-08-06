@@ -2,6 +2,7 @@ using ExamWork.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Внедрение зависимостей с помощью сервисов
 builder.Services.AddSingleton<GroupServices>();
 builder.Services.AddSingleton<ClassesServices>();
 builder.Services.AddSingleton<StudentsServices>();
