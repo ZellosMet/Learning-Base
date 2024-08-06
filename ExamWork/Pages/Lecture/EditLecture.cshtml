@@ -1,0 +1,33 @@
+﻿@page
+@model EditLectureModel
+@{
+    ViewData["Title"] = "Edit Lecture";
+}
+@*Форма редактирования*@
+<h3 class="display-4">Edit Lecture</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="EditLecture" method="post">
+        @Html.Label("Topic:")
+        <br>
+        @Html.TextBox("topic", @Model.LS.CurrentLecture.Topic)
+        <br>
+        @Html.Label("Description:")
+        <br>
+        @Html.TextBox("description", @Model.LS.CurrentLecture.Description)
+        <br>
+        @Html.Label("Type:")
+        <br>
+        @Html.TextBox("type", @Model.LS.CurrentLecture.Type)
+        <br>
+        @Html.Label("Date:")
+        <br>
+        @Html.TextBox("date", @Model.LS.CurrentLecture.Date)
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+<form>
+    <button a asp-page="/Lecture/MainLecture" class="btn btn-primary">Back</button>
+</form>

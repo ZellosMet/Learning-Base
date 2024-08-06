@@ -1,0 +1,46 @@
+﻿@page
+@model MainLectureModel
+@{
+    ViewData["Title"] = "Lecture";
+}
+@*Главная форма*@
+<div class="text-center">
+    <h1 class="display-4">Lecture</h1>
+</div>
+<div>
+    <form>
+        <button a asp-page="/Lecture/AddLecture" class="btn btn-primary">Add Lecture</button>
+    </form>
+</div>
+<br>
+<div>
+    <table>
+        @foreach (var lection in @Model.LS.LectureList)
+        {
+            <tr>
+                <td> <h4>@lection.Value.Topic</h4> </td>
+                <td>
+                    <form method="post">
+                        <a asp-page="/Lecture/DetailsLecture" asp-route-topic="@lection.Key" class="btn btn-primary">Details</a>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        <a asp-page="/Lecture/EditLecture" asp-route-topic="@lection.Key" class="btn btn-primary">Edit</a>
+                    </form>
+                </td>
+                <td>
+                    <form asp-page-handler="DeleteLecture" method="post" asp-route-topic="@lection.Key" onsubmit="return confirm('Delete?');">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<br>
+<div>
+    <form>
+        <button a asp-page="/Index" class="btn btn-primary">Back</button>
+    </form>
+</div>

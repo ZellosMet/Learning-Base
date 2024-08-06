@@ -1,0 +1,22 @@
+﻿@page
+@model AddGroupModel
+@{
+    ViewData["Title"] = "Add Group";
+}
+@*Главная форма*@
+<h3 class="display-4">Add Group</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="AddGroup" method="post">
+        @Html.Label("Name Group:")
+        <br>
+        @Html.TextBox("name")
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+
+<form>
+    <button a asp-page="/Groups/MainGroup" class="btn btn-primary">Back</button>
+</form>

@@ -1,0 +1,29 @@
+﻿@page
+@model EditClassesModel
+@{
+    ViewData["Title"] = "Edit Classes";
+}
+@*Форма редактирования*@
+<h3 class="display-4">Edit Classes</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="EditClasses" method="post">
+        @Html.Label("Name:")
+        <br>
+        @Html.TextBox("discipline", @Model.CS.CurrentClasses.Discipline)
+        <br>
+        @Html.Label("Date:")
+        <br>
+        @Html.TextBox("date", @Model.CS.CurrentClasses.Date)
+        <br>
+        @Html.Label("Class Form:")
+        <br>
+        @Html.TextBox("class_form", @Model.CS.CurrentClasses.ClassForm)
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+<form>
+    <button a asp-page="/Classes/MainClasses" class="btn btn-primary">Back</button>
+</form>

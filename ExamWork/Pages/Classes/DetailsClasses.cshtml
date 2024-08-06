@@ -1,0 +1,32 @@
+﻿@page
+@model DetailsClassesModel
+@{
+    ViewData["Title"] = "Details Classes";
+}
+@*Форма детального описания*@
+<div>
+<h3 class="display-4">Details Classes</h3>
+<table class="list-group-item d-flex justify-content-left">
+    <tr>
+        <td>@Html.Label("Name Discipline:")</td>
+        <td>@Html.Label(@Model.CS.CurrentClasses.Discipline)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Date:")</td>
+        <td>@Html.Label(@Model.CS.CurrentClasses.Date)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Classes Form:")</td>
+        <td>@Html.Label(@Model.CS.CurrentClasses.ClassForm)</td>
+    </tr>
+</table>
+<br>
+</div>
+<div class="list-group-item d-flex justify-content-left">
+    <form>
+        <button a asp-page="/Classes/MainClasses" class="btn btn-primary">Back</button>
+    </form>
+    <form method="post">
+        <a asp-page="/Classes/EditClasses" asp-route-discipline="@Model.CS.CurrentClasses.Discipline" class="btn btn-primary">Edit</a>
+    </form>
+</div>

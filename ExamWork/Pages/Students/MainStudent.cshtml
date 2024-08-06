@@ -1,0 +1,46 @@
+﻿@page
+@model MainStudentModel
+@{
+    ViewData["Title"] = "Students";
+}
+@*Главная форма*@
+<div class="text-center">
+    <h1 class="display-4">Students</h1>
+</div>
+<div>
+    <form>
+        <button a asp-page="/Students/AddStudent" class="btn btn-primary">Add Student</button>
+    </form>
+</div>
+<br>
+<div>
+    <table>
+        @foreach (var student in @Model.SS.StudentList)
+        {
+            <tr>
+                <td> <h4>@student.Value.FirstName @student.Value.LastName @student.Value.SurName</h4> </td>
+                <td>
+                    <form method="post">
+                        <a asp-page="/Students/DetailsStudent" asp-route-stud_id="@student.Key" class="btn btn-primary">Details</a>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        <a asp-page="/Students/EditStudent" asp-route-stud_id="@student.Key" class="btn btn-primary">Edit</a>
+                    </form>
+                </td>
+                <td>
+                    <form asp-page-handler="DeleteStudent" method="post" asp-route-stud_id="@student.Key" onsubmit="return confirm('Delete?');">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<br>
+<div>
+    <form>
+        <button a asp-page="/Index" class="btn btn-primary">Back</button>
+    </form>
+</div>

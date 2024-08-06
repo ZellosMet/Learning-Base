@@ -1,0 +1,21 @@
+﻿@page
+@model EditGroupModel
+@{
+    ViewData["Title"] = "Edit Group";
+}
+@*Форма редактирования*@
+<h3 class="display-4">Edit Group</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="EditGroup" method="post">
+        @Html.Label("Group Name:")
+        <br>
+        @Html.TextBox("name", @Model.G.CurrentGroup)
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+<form>
+    <button a asp-page="/Groups/MainGroup" class="btn btn-primary">Back</button>
+</form>

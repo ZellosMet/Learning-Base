@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@*Главная форма*@
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Learning Base</h1>    
+</div>
+
+<div class="list-group-item d-flex justify-content-between">
+    <h1>
+        <a asp-page="/Groups/MainGroup" class="btn btn-primary">Groups</a>
+    </h1>
+    <h1>
+        <a asp-page="/Classes/MainClasses" class="btn btn-primary">Classes</a>
+    </h1>
+    <h1>
+        <a asp-page="/Students/MainStudent" class="btn btn-primary">Students</a>
+    </h1>
+    <h1>
+        <a asp-page="/Lecture/MainLecture" class="btn btn-primary">Lectures & Labs</a>
+    </h1>
+</div>

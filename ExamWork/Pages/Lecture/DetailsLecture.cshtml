@@ -1,0 +1,36 @@
+﻿@page
+@model DetailsLectureModel
+@{
+    ViewData["Title"] = "Details Lecture";
+}
+@*Форма детального описания*@
+<div>
+    <h3 class="display-4">Details Lecture</h3>
+<table class="list-group-item d-flex justify-content-left">
+    <tr>
+        <td>@Html.Label("Topic:")</td>
+            <td>@Html.Label(@Model.LS.CurrentLecture.Topic)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Description:")</td>
+        <td>@Html.Label(@Model.LS.CurrentLecture.Description)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Type Lecture:")</td>
+        <td>@Html.Label(@Model.LS.CurrentLecture.Type)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Date")</td>
+        <td>@Html.Label(@Model.LS.CurrentLecture.Date)</td>
+    </tr>
+</table>
+<br>
+</div>
+<div class="list-group-item d-flex justify-content-left">
+    <form>
+        <button a asp-page="/Lecture/MainLecture" class="btn btn-primary">Back</button>
+    </form>
+    <form method="post">
+        <a asp-page="/Lecture/EditLecture" asp-route-topic="@Model.LS.CurrentLecture.Topic" class="btn btn-primary">Edit</a>
+    </form>
+</div>

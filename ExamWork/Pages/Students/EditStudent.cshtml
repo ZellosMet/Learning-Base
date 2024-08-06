@@ -1,0 +1,42 @@
+﻿@page
+@model EditStudentModel
+@{
+    ViewData["Title"] = "Edit Classes";
+}
+@*Форма редактирования*@
+<h3 class="display-4">Edit Student</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="EditStudent" method="post">
+        @Html.Label("First Name:")
+        <br>
+        @Html.TextBox("first_name", @Model.SS.CurrentStudent.FirstName)
+        <br>
+        @Html.Label("Last Name:")
+        <br>
+        @Html.TextBox("last_name", @Model.SS.CurrentStudent.LastName)
+        <br>
+        @Html.Label("Sur Name:")
+        <br>
+        @Html.TextBox("sur_name", @Model.SS.CurrentStudent.SurName)
+        <br>
+        @Html.Label("Student ID:")
+        <br>
+        @Html.TextBox("stud_id", @Model.SS.CurrentStudent.StudentId.ToString())
+        <br>
+        @Html.Label("True:")
+        @Html.RadioButton("group_leader", "true", @Model.SS.CurrentStudent.GroupLeader? true : false)
+        @Html.Label("False:")
+        @Html.RadioButton("group_leader", "false", @Model.SS.CurrentStudent.GroupLeader ? false : true)
+        <br>
+        @Html.Label("Group:")
+        <br>
+        @Html.DropDownList("group", new SelectList(Model.G.GroupList), "All")
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+<form>
+    <button a asp-page="/Students/MainStudent" class="btn btn-primary">Back</button>
+</form>

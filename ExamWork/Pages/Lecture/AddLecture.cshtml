@@ -1,0 +1,34 @@
+﻿@page
+@model AddLectionModel
+@{
+    ViewData["Title"] = "Add Lecture";
+}
+@*Главная форма*@
+<h3 class="display-4">Add Lecture</h3>
+<div class="list-group-item d-flex justify-content-between">
+    <form asp-page-handler="AddLecture" method="post">
+        @Html.Label("Topic:")
+        <br>
+        @Html.TextBox("topic")
+        <br>
+        @Html.Label("Description:")
+        <br>
+        @Html.TextBox("description")
+        <br>
+        @Html.Label("Type:")
+        <br>
+        @Html.TextBox("type")
+        <br>
+        @Html.Label("Date:")
+        <br>
+        @Html.TextBox("date")
+        <br>        
+        <button type="submit" class="btn btn-primary">Save</button>
+        <h5>@Model.Message</h5>
+    </form>
+</div>
+<br>
+
+<form>
+    <button a asp-page="/Lecture/MainLecture" class="btn btn-primary">Back</button>
+</form>

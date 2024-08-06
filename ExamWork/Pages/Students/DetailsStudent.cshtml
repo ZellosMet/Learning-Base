@@ -1,0 +1,44 @@
+﻿@page
+@model DetailsStudentModel
+@{
+    ViewData["Title"] = "Details Student";
+}
+@*Форма детального описания*@
+<div>
+<h3 class="display-4">Details Student</h3>
+<table class="list-group-item d-flex justify-content-left">
+    <tr>
+        <td>@Html.Label("First Name:")</td>
+        <td>@Html.Label(@Model.SS.CurrentStudent.FirstName)</td>
+    </tr>
+        <tr>
+            <td>@Html.Label("Last Name:")</td>
+            <td>@Html.Label(@Model.SS.CurrentStudent.LastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Sur Name:")</td>
+            <td>@Html.Label(@Model.SS.CurrentStudent.SurName)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Student ID")</td>
+            <td>@Html.Label(@Model.SS.CurrentStudent.StudentId.ToString())</td>
+        </tr>
+        <tr>
+        <td>@Html.Label("Group Leader:")</td>
+        <td>@Html.Label(@Model.SS.CurrentStudent.GroupLeader.ToString())</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Group")</td>
+        <td>@Html.Label(@Model.SS.CurrentStudent.Group)</td>
+    </tr>  
+</table>
+<br>
+</div>
+<div class="list-group-item d-flex justify-content-left">
+    <form>
+        <button a asp-page="/Students/MainStudent" class="btn btn-primary">Back</button>
+    </form>
+    <form method="post">
+        <a asp-page="/Students/EditStudent" asp-route-stud_id="@Model.SS.CurrentStudent.StudentId" class="btn btn-primary">Edit</a>
+    </form>
+</div>
